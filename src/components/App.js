@@ -1,6 +1,8 @@
 import Component from './Component.js';
 import Header from './Header.js';
 import List from './List.js';
+import Loading from './Loading.js';
+
 import api from '../services/api.js';
 
 class App extends Component {
@@ -16,11 +18,18 @@ class App extends Component {
         api.getQuotes()
             .then(quotesData => {
                 list.update({ quotes: quotesData });
+            })
+            .finally(() => {
+                loading.update({ done: true });
             });
 
+        const loading = new Loading({ done: false });
+        const loadingDOM = loading.render();
+        
         const main = dom.querySelector('main');
 
         dom.prepend(headerDOM);
+        main.appendChild(loadingDOM);
         main.appendChild(listDOM);
 
         return dom;
