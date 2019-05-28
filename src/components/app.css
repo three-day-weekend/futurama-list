@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Righteous|Roboto&display=swap');
+h1 {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+    color: #5CBAA7;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
