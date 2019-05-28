@@ -1,6 +1,7 @@
 import Component from './Component.js';
 import Header from './Header.js';
 import List from './List.js';
+import api from '../services/api.js';
 
 class App extends Component {
     render() {
@@ -9,8 +10,13 @@ class App extends Component {
         const header = new Header();
         const headerDOM = header.render();
 
-        const list = new List();
+        const list = new List({ quotes: [] });
         const listDOM = list.render();
+
+        api.getQuotes()
+            .then(quotesData => {
+                list.update({ quotes: quotesData });
+            });
 
         const main = dom.querySelector('main');
 
