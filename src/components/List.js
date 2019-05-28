@@ -1,5 +1,5 @@
 import Component from './Component.js'; 
-import CharacterItem from './CharacterItem.js';
+import QuoteItem from './QuoteItem.js';
 
 class List extends Component {
     render() {
@@ -8,9 +8,9 @@ class List extends Component {
         const quotes = this.props.quotes;
 
         quotes.forEach(quote => {
-            const characterItem = new CharacterItem({ character: quote });
-            const characterItemDOM = characterItem.render();
-            dom.appendChild(characterItemDOM);
+            const quoteItem = new QuoteItem({ quote });
+            const quoteItemDOM = quoteItem.render();
+            dom.appendChild(quoteItemDOM);
         });
 
         return dom;

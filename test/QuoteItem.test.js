@@ -1,18 +1,18 @@
-import CharacterItem from '../src/components/CharacterItem.js';
+import QuoteItem from '../src/components/QuoteItem.js';
 
 const test = QUnit.test;
 
-QUnit.module('CharacterItem');
+QUnit.module('QuoteItem');
 
-test('make Character Item from template', assert => {
-    const character = {
+test('make Quote Item from template', assert => {
+    const quote = {
         character: 'Bender',
         quote: 'Bite my shiny metal ass.',
         image: 'https://res.cloudinary.com/dzxqhkyqd/image/fetch/c_scale,w_500/https://res.cloudinary.com/dzxqhkyqd/image/upload/v1552429540/bender.png'
     };
-    const characterItem = new CharacterItem({ character });
-    const characterItemDOM = characterItem.renderTemplate();
-    assert.htmlEqual(characterItemDOM, /*html*/ `
+    const quoteItem = new QuoteItem({ quote });
+    const quoteItemDOM = quoteItem.renderTemplate();
+    assert.htmlEqual(quoteItemDOM, /*html*/ `
         <li>
             <h2>Bender</h2>
             <section>
