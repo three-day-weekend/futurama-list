@@ -1,0 +1,28 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+ul li {
+    list-style: none;
+    border: 1px solid #5CBAA7;
+    height: 300px;
+    width: 300px;
+    margin: 0 5px 5px 0;
+}
+
+li section {
+    display: flex;
+}
+
+li blockquote {
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+}
+
+li img {
+    height: 200px;
+    padding: 3px;
+}
