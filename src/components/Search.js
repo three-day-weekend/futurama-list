@@ -12,6 +12,18 @@ class Search extends Component {
             window.location.hash = searchParams.toString();
         });
 
+        window.addEventListener('hashchange', () => {
+            setInputFromHash();
+        });
+
+        function setInputFromHash() {
+            const params = window.location.hash.slice(1);
+            const searchParams = new URLSearchParams(params);
+            const search = searchParams.get('search');
+            input.value = search;
+        }
+
+        setInputFromHash();
         
         return form;
     }
