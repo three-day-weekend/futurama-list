@@ -27,7 +27,12 @@ class App extends Component {
         
         function loadQuotes() {
             loading.update({ done: false });
-            api.getQuotes()
+
+            const params = window.location.hash.slice(1);
+            const searchParams = new URLSearchParams(params);
+            const search = searchParams.get('search');
+
+            api.getQuotes(search)
                 .then(quotesData => {
                     list.update({ quotes: quotesData });
                 })
