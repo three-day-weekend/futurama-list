@@ -1,0 +1,29 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+ul li {
+    list-style: none;
+    border: 1px solid #5CBAA7;
+    width: 300px;
+    margin: 0 5px 5px 0;
+}
+
+li blockquote {
+    margin: 0 5px;
+}
+
+li section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+li img {
+    width: 100px;
+    height: auto;
+    padding: 5px;
+}
