@@ -15,22 +15,37 @@ class App extends Component {
         const list = new List({ quotes: [] });
         const listDOM = list.render();
 
-        api.getQuotes()
-            .then(quotesData => {
-                list.update({ quotes: quotesData });
-            })
-            .finally(() => {
-                loading.update({ done: true });
-            });
-
-        const loading = new Loading({ done: false });
+        const loading = new Loading({ done: true });
         const loadingDOM = loading.render();
-        
+
         const main = dom.querySelector('main');
 
         dom.prepend(headerDOM);
-        main.appendChild(loadingDOM);
+        
         main.appendChild(listDOM);
+        main.appendChild(loadingDOM);
+        
+        function loadQuotes() {
+            loading.update({ done: false });
+
+            const params = window.location.hash.slice(1);
+            const searchParams = new URLSearchParams(params);
+            const search = searchParams.get('search');
+
+            api.getQuotes(search)
+                .then(quotesData => {
+                    list.update({ quotes: quotesData });
+                })
+                .finally(() => {
+                    loading.update({ done: true });
+                });
+        }
+
+        loadQuotes();
+
+        window.addEventListener('hashchange', () => {
+            loadQuotes();
+        });
 
         return dom;
     }
